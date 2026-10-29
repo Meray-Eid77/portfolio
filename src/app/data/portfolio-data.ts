@@ -27,7 +27,7 @@ export const profile = {
   },
   skills: ['Angular', 'TypeScript', 'JavaScript', 'HTML', 'CSS / SCSS', 'Node.js', 'REST APIs', 'SQL', 'Git'],
   email: 'meray.eid2003@gmail.com',
-  github: 'https://github.com/your-username',
+  github: 'https://github.com/Meray-Eid77',
   linkedin: 'https://www.linkedin.com/in/meray-eid',
 };
 
