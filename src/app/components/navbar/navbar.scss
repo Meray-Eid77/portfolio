@@ -1,0 +1,138 @@
+.navbar {
+  position: fixed;
+  inset-inline: 0;
+  top: 16px;
+  z-index: 50;
+  padding-inline: 16px;
+  transition: top 0.3s;
+
+  &.scrolled {
+    top: 10px;
+
+    .nav-inner {
+      background-color: rgba(10, 13, 24, 0.7);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: var(--max-w);
+  height: 64px;
+  margin-inline: auto;
+  padding-inline: 12px 10px;
+  border-radius: 999px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--grad);
+  background-size: 200% auto;
+  animation: shine 6s linear infinite;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin-inline-start: auto;
+
+  a {
+    display: block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+
+    &:hover {
+      color: var(--text);
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+}
+
+.lang-switch {
+  display: flex;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+  }
+
+  // The thumb slides to the Arabic side
+  &.ar .thumb {
+    transform: translateX(100%);
+  }
+}
+
+.track {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.thumb {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 50%;
+  border-radius: 999px;
+  background: var(--grad);
+  background-size: 200% auto;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.5);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.opt {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: color 0.3s;
+
+  &.active {
+    color: #fff;
+  }
+}
+
+@media (max-width: 680px) {
+  .links {
+    display: none;
+  }
+
+  .lang-switch {
+    margin-inline-start: auto;
+  }
+}

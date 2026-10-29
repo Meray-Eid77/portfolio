@@ -1,0 +1,216 @@
+.list {
+  display: grid;
+  gap: 40px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  overflow: hidden;
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 30px 80px rgba(139, 92, 246, 0.18);
+
+    .mock,
+    img {
+      transform: scale(1.03) rotate(-1deg);
+    }
+  }
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.45), transparent 60%),
+    radial-gradient(circle at 80% 90%, rgba(34, 211, 238, 0.3), transparent 55%);
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+  }
+}
+
+.content {
+  padding: 40px;
+
+  h3 {
+    margin-block: 6px 12px;
+    font-size: 1.75rem;
+  }
+}
+
+.num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.description {
+  color: var(--muted);
+}
+
+.features {
+  display: grid;
+  gap: 8px;
+  margin-block: 24px;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-inline-start: 26px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0.55em;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--grad);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+    }
+  }
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+// Placeholder "admin dashboard" drawing
+.mock {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(8, 11, 20, 0.85);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  transition: transform 0.5s;
+}
+
+.mock-bar {
+  display: flex;
+  gap: 5px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.mock-body {
+  display: flex;
+  height: 240px;
+}
+
+.mock-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 24%;
+  padding: 14px 10px;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.06);
+
+  i {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+
+    &.active {
+      background: var(--accent);
+    }
+  }
+}
+
+.mock-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+}
+
+.mock-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  div {
+    height: 46px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 2px solid var(--accent-2);
+
+    &:nth-child(2) {
+      border-color: var(--accent);
+    }
+
+    &:nth-child(3) {
+      border-color: var(--accent-3);
+    }
+  }
+}
+
+.mock-chart {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+
+  span {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg, var(--accent-2), var(--accent));
+    transform-origin: bottom;
+    animation: grow 2.4s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0.55);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .visual,
+  .content {
+    padding: 26px;
+  }
+}

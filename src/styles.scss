@@ -1,0 +1,247 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --bg: #06080f;
+  --glass: rgba(255, 255, 255, 0.035);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #eef1f7;
+  --muted: #98a2b8;
+  --accent: #8b5cf6;
+  --accent-2: #22d3ee;
+  --accent-3: #f472b6;
+  --grad: linear-gradient(120deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  --radius: 22px;
+  --max-w: 1120px;
+  --font: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+html[lang='ar'] {
+  --font: 'Cairo', system-ui, sans-serif;
+  --font-display: 'Cairo', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.45);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg);
+  border-radius: 999px;
+  background: linear-gradient(var(--accent), var(--accent-2));
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.section {
+  padding-block: 110px;
+}
+
+.section-title {
+  margin-bottom: 28px;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  &::before {
+    content: '';
+    width: 36px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--grad);
+  }
+}
+
+// Letter spacing breaks Arabic letter joining, so only apply it in English.
+html[lang='en'] .eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.gradient-text {
+  background: var(--grad);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.glass {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+// Mouse-follow glow, driven by the appSpotlight directive
+.spotlight {
+  background-image: radial-gradient(
+    450px circle at var(--x, -1000px) var(--y, -1000px),
+    rgba(139, 92, 246, 0.16),
+    transparent 45%
+  );
+}
+
+// Scroll-in animation, driven by the appReveal directive
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.2, 0.65, 0.3, 1);
+
+  &.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s,
+    background-position 0.6s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.btn-primary {
+  background: var(--grad);
+  background-size: 200% auto;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
+
+  &:hover {
+    background-position: right center;
+    box-shadow: 0 14px 40px rgba(34, 211, 238, 0.4);
+  }
+}
+
+.btn-outline {
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    border-color: var(--accent-2);
+  }
+}
+
+.tag {
+  padding: 5px 15px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.1);
+  color: #d4c8ff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

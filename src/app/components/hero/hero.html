@@ -1,0 +1,42 @@
+<section id="home" class="hero">
+  <div class="container hero-inner">
+    <div class="intro">
+      <div appReveal>
+        <span class="status glass"><span class="pulse"></span>{{ i18n.t(text.status) }}</span>
+      </div>
+
+      <p class="greeting" appReveal="100">{{ i18n.t(text.greeting) }}</p>
+      <h1 class="gradient-text" appReveal="200">{{ profile.name }}</h1>
+
+      <h2 class="role" [attr.aria-label]="profile.role" appReveal="300">
+        <span aria-hidden="true" dir="ltr">{{ typed() }}</span><span class="cursor" aria-hidden="true"></span>
+      </h2>
+
+      <p class="tagline" appReveal="400">{{ i18n.t(profile.tagline) }}</p>
+
+      <div class="actions" appReveal="500">
+        <a href="#projects" class="btn btn-primary">{{ i18n.t(text.viewWork) }}</a>
+        <a href="#contact" class="btn btn-outline">{{ i18n.t(text.contactMe) }}</a>
+      </div>
+    </div>
+
+    <div class="code-wrap" appReveal="400">
+      <div class="code-float">
+        <div class="code-card" dir="ltr" aria-hidden="true" appSpotlight>
+          <div class="code-head">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="file">developer.ts</span>
+          </div>
+          <pre><code><span class="kw">const</span> <span class="var">developer</span> = &#123;
+  name: <span class="str">'{{ profile.name }}'</span>,
+  role: <span class="str">'{{ profile.role }}'</span>,
+  skills: [@for (skill of topSkills; track skill; let last = $last) {<span class="str">'{{ skill }}'</span>@if (!last) {, }}],
+  available: <span class="kw">true</span>,
+&#125;;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-hint" [attr.aria-label]="i18n.t(text.scroll)"><span></span></a>
+</section>

@@ -1,0 +1,63 @@
+// Box with a rotating gradient border (--angle is registered in styles.scss)
+.box {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px;
+  border: 2px solid transparent;
+  border-radius: 28px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.28), transparent 60%) padding-box,
+    linear-gradient(#0a0e1a, #0a0e1a) padding-box,
+    conic-gradient(from var(--angle), var(--accent), var(--accent-2), var(--accent-3), var(--accent)) border-box;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.title {
+  max-width: 720px;
+  margin: 8px auto 18px;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+}
+
+.text {
+  max-width: 520px;
+  margin: 0 auto 36px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.btn-lg {
+  padding: 16px 34px;
+  font-size: 1.1rem;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+  list-style: none;
+
+  a {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 999px;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+
+    &:hover {
+      color: var(--text);
+      border-color: var(--accent-2);
+      transform: translateY(-2px);
+    }
+  }
+}

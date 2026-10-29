@@ -1,0 +1,29 @@
+<header class="navbar" [class.scrolled]="scrolled()">
+  <nav class="nav-inner glass">
+    <a href="#home" class="logo">
+      <span class="logo-mark">ME</span>
+      <span class="logo-name">{{ profile.name }}</span>
+    </a>
+
+    <ul class="links">
+      <li><a href="#about">{{ i18n.t(text.about) }}</a></li>
+      <li><a href="#projects">{{ i18n.t(text.projects) }}</a></li>
+      <li><a href="#contact">{{ i18n.t(text.contact) }}</a></li>
+    </ul>
+
+    <button
+      type="button"
+      class="lang-switch"
+      [class.ar]="i18n.lang() === 'ar'"
+      [attr.aria-label]="i18n.t(text.switchLang)"
+      [title]="i18n.t(text.switchLang)"
+      (click)="i18n.toggle()"
+    >
+      <span class="track" dir="ltr" aria-hidden="true">
+        <span class="thumb"></span>
+        <span class="opt" [class.active]="i18n.lang() === 'en'">EN</span>
+        <span class="opt" [class.active]="i18n.lang() === 'ar'">AR</span>
+      </span>
+    </button>
+  </nav>
+</header>

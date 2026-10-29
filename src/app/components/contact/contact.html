@@ -1,0 +1,17 @@
+<section id="contact" class="section">
+  <div class="container" appReveal>
+    <div class="box">
+      <span class="eyebrow">{{ i18n.t(text.eyebrow) }}</span>
+      <h2 class="title">{{ i18n.t(text.title) }}</h2>
+      <p class="text">{{ i18n.t(text.text) }}</p>
+
+      <a [href]="'mailto:' + profile.email" class="btn btn-primary btn-lg">{{ i18n.t(text.email) }} ✦</a>
+
+      <ul class="socials">
+        <li><a [href]="profile.github" target="_blank" rel="noopener" class="glass">GitHub</a></li>
+        <li><a [href]="profile.linkedin" target="_blank" rel="noopener" class="glass">LinkedIn</a></li>
+        <li><a [href]="'mailto:' + profile.email" dir="ltr" class="glass">{{ profile.email }}</a></li>
+      </ul>
+    </div>
+  </div>
+</section>

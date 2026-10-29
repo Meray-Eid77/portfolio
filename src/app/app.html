@@ -1,0 +1,21 @@
+<div class="backdrop" aria-hidden="true">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+  <span class="grid"></span>
+</div>
+
+<app-navbar />
+
+<main>
+  <app-hero />
+  <app-about />
+  <app-projects />
+  <app-contact />
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © {{ year }} {{ profile.name }} · {{ i18n.t(text.builtWith) }}
+  </div>
+</footer>

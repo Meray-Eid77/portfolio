@@ -1,0 +1,67 @@
+// Animated background shared by the whole page
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(110px);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+  top: -160px;
+  inset-inline-start: -120px;
+  background: var(--accent);
+  opacity: 0.45;
+}
+
+.blob-2 {
+  top: 35%;
+  inset-inline-end: -180px;
+  background: var(--accent-2);
+  opacity: 0.28;
+  animation-duration: 27s;
+}
+
+.blob-3 {
+  bottom: -220px;
+  inset-inline-start: 30%;
+  background: var(--accent-3);
+  opacity: 0.25;
+  animation-duration: 32s;
+}
+
+@keyframes drift {
+  50% {
+    transform: translate(90px, 70px) scale(1.15);
+  }
+  100% {
+    transform: translate(-50px, 130px) scale(0.95);
+  }
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at top, #000 15%, transparent 70%);
+}
+
+.footer {
+  padding-block: 32px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

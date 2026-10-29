@@ -1,0 +1,51 @@
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-inner">
+      <div appReveal>
+        <span class="eyebrow">{{ i18n.t(text.eyebrow) }}</span>
+        <h2 class="section-title">{{ i18n.t(text.title) }}</h2>
+        <p class="bio">{{ i18n.t(profile.bio) }}</p>
+      </div>
+
+      <div appReveal="150">
+        <div class="skills-card glass" appSpotlight>
+          <h3>{{ i18n.t(text.skills) }}</h3>
+          <ul class="skills">
+            @for (skill of profile.skills; track skill) {
+              <li class="tag">{{ skill }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <span class="eyebrow services-eyebrow" appReveal>{{ i18n.t(text.servicesEyebrow) }}</span>
+    <div class="services">
+      @for (service of services; track service.icon; let i = $index) {
+        <div [appReveal]="i * 120">
+          <div class="service glass" appSpotlight>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                @switch (service.icon) {
+                  @case ('frontend') {
+                    <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+                  }
+                  @case ('backend') {
+                    <rect x="3" y="3" width="18" height="7" rx="2" /><rect x="3" y="14" width="18" height="7" rx="2" />
+                    <line x1="7" y1="6.5" x2="7.01" y2="6.5" /><line x1="7" y1="17.5" x2="7.01" y2="17.5" />
+                  }
+                  @case ('dashboard') {
+                    <rect x="3" y="3" width="7" height="9" rx="1.5" /><rect x="14" y="3" width="7" height="5" rx="1.5" />
+                    <rect x="14" y="12" width="7" height="9" rx="1.5" /><rect x="3" y="16" width="7" height="5" rx="1.5" />
+                  }
+                }
+              </svg>
+            </div>
+            <h3>{{ i18n.t(service.title) }}</h3>
+            <p>{{ i18n.t(service.description) }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
